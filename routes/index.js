@@ -4,7 +4,11 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Express' });
+  if (req.session.user) {
+    res.render('index', { title: 'Express', user: req.session.user });
+  } else {
+    res.redirect('users/login');
+  }
 });
 
 module.exports = router;
