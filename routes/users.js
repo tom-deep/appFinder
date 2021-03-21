@@ -15,7 +15,14 @@ router.post('/register', async (req, res) => {
     errors.push('The provided passwords do not match.');
   }
 
-  if (!(req.body.email && req.body.username && req.body.password && req.body.passwordConf)) {
+  if (
+    !(
+      req.body.email &&
+      req.body.username &&
+      req.body.password &&
+      req.body.passwordConf
+    )
+  ) {
     errors.push('All fields are required.');
   }
 
@@ -28,7 +35,8 @@ router.post('/register', async (req, res) => {
   }
 
   if (!errors.length) {
-    const insertQuery = 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3)';
+    const insertQuery =
+      'INSERT INTO users (username, email, password) VALUES ($1, $2, $3)';
     const password = await bcrypt.hash(req.body.password, 10);
     await db.query(insertQuery, [req.body.username, req.body.email, password]);
 
@@ -49,12 +57,15 @@ router.post('/login', async (req, res) => {
   const selectResult = await db.query(selectQuery, [req.body.username]);
 
   if (selectResult.rows.length === 1) {
-    const auth = await bcrypt.compare(req.body.password, selectResult.rows[0].password);
+    const auth = await bcrypt.compare(
+      req.body.password,
+      selectResult.rows[0].password
+    );
 
     if (auth) {
       [req.session.user] = selectResult.rows;
       console.log(req.session.user);
-      res.redirect('/');
+      req.session.save(() => res.redirect('/'));
     } else {
       errors.push('Incorrect username/password');
       res.render('login', { errors });
@@ -66,8 +77,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
+  req.session.destroy(() => res.redirect('/'));
 });
 
 module.exports = router;

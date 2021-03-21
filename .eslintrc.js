@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: 'airbnb-base',
+  extends: ['airbnb-base', 'prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -16,5 +16,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'prefer-template': 'off',
+    'no-await-in-loop': 'off',
+    'no-plusplus': 'off',
   },
 };

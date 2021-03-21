@@ -7,22 +7,38 @@
     "dev": "nodemon ./bin/www --ignore sessions"
   },
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
-    "debug": "~2.6.9",
-    "dotenv": "^7.0.0",
-    "express": "~4.16.0",
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "express-session": "^1.17.1",
     "hbs": "^4.1.1",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0",
-    "nodemon": "^2.0.4",
-    "pg": "^7.18.2",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "pg": "^8.5.1",
     "session-file-store": "^1.5.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.22.1"
+    "eslint-config-prettier": "7.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "prettier": "2.2.1"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
