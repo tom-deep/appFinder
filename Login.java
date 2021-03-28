@@ -8,15 +8,12 @@ public class Login extends JFrame implements ActionListener {
    JPasswordField password_text;
    JButton submit, cancel;
    Login() {
-      // Username Label
       user_label = new JLabel();
       user_label.setText("User Name :");
       userName_text = new JTextField();
-      // Password Label
       password_label = new JLabel();
       password_label.setText("Password :");
       password_text = new JPasswordField();
-      // Submit
       submit = new JButton("SUBMIT");
       panel = new JPanel(new GridLayout(3, 1));
       panel.add(user_label);
