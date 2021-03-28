@@ -76,6 +76,27 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/change-password', (req, res) => {
+  res.render('change');
+});
+
+router.post('/change-password', async (req, res) => {
+  const errors = [];
+  if (req.body.password !== req.body.passwordConf) {
+    errors.push('Passwords do not match');
+  }
+  if (errors.length) {
+    res.render('change', { errors });
+  } else {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+    const query = ' UPDATE users SET password = $1 WHERE id = $2';
+    await db.query(query, [hashedPassword, req.session.user.id]);
+
+    res.redirect('/users/logout');
+  }
+});
+
 router.get('/logout', (req, res) => {
   req.session.destroy(() => res.redirect('/'));
 });
