@@ -1,4 +1,5 @@
 const express = require('express');
+const db = require('../db');
 
 const router = express.Router();
 
@@ -9,6 +10,12 @@ router.get('/', (req, res) => {
   } else {
     res.redirect('users/login');
   }
+});
+
+router.get('/guest', async (req, res) => {
+  const query = 'SELECT * FROM apps;';
+  const result = await db.query(query);
+  res.render('guest', { title: 'appFinder', rows: result.rows });
 });
 
 module.exports = router;
