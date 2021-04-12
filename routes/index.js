@@ -18,4 +18,19 @@ router.get('/guest', async (req, res) => {
   res.render('guest', { title: 'appFinder', rows: result.rows });
 });
 
+router.get('/add-review/:id', async (req, res) => {
+  const query = 'SELECT * FROM apps WHERE id = $1;';
+  const params = [req.params.id];
+  const result = await db.query(query, params);
+
+  res.render('add-review', { rows: result.rows });
+});
+
+router.get('/app-view/:id', async (req, res) => {
+  const query = 'SELECT * FROM apps WHERE id = $1;';
+  const params = [req.params.id];
+  const result = await db.query(query, params);
+
+  res.render('app-view', { rows: result.rows });
+});
 module.exports = router;

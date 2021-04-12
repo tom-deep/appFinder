@@ -1,0 +1,288 @@
+[session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open 'C:\Users\Davis Heyman\appFinder\code-challenge-password-change\sessions\g1YNTa6KToGoC2LnIPuGYs_WvhiCbazz.json'
+[0mGET / [36m302[0m 16.703 ms - 66[0m
+[0mGET /users/login [32m200[0m 151.768 ms - 2119[0m
+QUERY: SELECT * FROM apps;
+PARAMS: undefined
+RESULT ROWS:  [
+  {
+    id: 1,
+    name: 'Instagram',
+    category: 'Social Media',
+    description: 'Instagram allows you to share photos and videos over the web with friends in family. It is one of the largest social media platforms in the world. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 3,
+    name: 'Groupme',
+    category: 'Messaging',
+    description: 'Send messages to your friends with GroupMe. This app allows you to make massive group chats and share messages, pictures, documents, and more!',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 2,
+    name: 'Geometry Dash',
+    category: 'Game',
+    description: 'A game where you beat multiple levels by traversing through a playing field, evading obstacles along the way',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 4,
+    name: 'Canvas',
+    category: 'Educational',
+    description: 'Take the Canvas website on the go. Track assignments, view grades, and chat with team projects through this app.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 5,
+    name: 'Venmo',
+    category: 'Finance',
+    description: 'Transfer money to friends virtually with Venmo. Venmo balances can be transferred free of charge to your bank account.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 6,
+    name: 'Chase',
+    category: 'Finance',
+    description: 'View all of your Chase accounts from this mobile banking app. Manage your investments, pay bills, and more.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 7,
+    name: "McDonald's",
+    category: 'Food',
+    description: 'Order online and get exclusive deals with the McDonalds app. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 8,
+    name: 'Chipotle',
+    category: 'Food',
+    description: 'Order online and earn rewards through this app. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 9,
+    name: 'WaterMinder',
+    category: 'Fitness',
+    description: 'An intuitive app to track your water intake. Enter your physical information and goals, and WaterMinder will do the rest. ',
+    reviews: [],
+    price: '4.99'
+  },
+  {
+    id: 10,
+    name: 'Wall Street Journal',
+    category: 'News',
+    description: 'Get the Wall Street Journal right on your mobile device. Subscription required. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 11,
+    name: 'Psych',
+    category: 'Game',
+    description: 'Answer the prompts with your friends, and vote on who had the best response. Fun for all ages.',
+    reviews: [],
+    price: '2.99'
+  }
+]
+[0mGET /guest [32m200[0m 427.119 ms - 2372[0m
+[0mGET /?sort=category [36m302[0m 2.695 ms - 66[0m
+[0mGET /users/login [36m304[0m 5.473 ms - -[0m
+QUERY: SELECT * FROM apps;
+PARAMS: undefined
+RESULT ROWS:  [
+  {
+    id: 1,
+    name: 'Instagram',
+    category: 'Social Media',
+    description: 'Instagram allows you to share photos and videos over the web with friends in family. It is one of the largest social media platforms in the world. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 3,
+    name: 'Groupme',
+    category: 'Messaging',
+    description: 'Send messages to your friends with GroupMe. This app allows you to make massive group chats and share messages, pictures, documents, and more!',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 2,
+    name: 'Geometry Dash',
+    category: 'Game',
+    description: 'A game where you beat multiple levels by traversing through a playing field, evading obstacles along the way',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 4,
+    name: 'Canvas',
+    category: 'Educational',
+    description: 'Take the Canvas website on the go. Track assignments, view grades, and chat with team projects through this app.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 5,
+    name: 'Venmo',
+    category: 'Finance',
+    description: 'Transfer money to friends virtually with Venmo. Venmo balances can be transferred free of charge to your bank account.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 6,
+    name: 'Chase',
+    category: 'Finance',
+    description: 'View all of your Chase accounts from this mobile banking app. Manage your investments, pay bills, and more.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 7,
+    name: "McDonald's",
+    category: 'Food',
+    description: 'Order online and get exclusive deals with the McDonalds app. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 8,
+    name: 'Chipotle',
+    category: 'Food',
+    description: 'Order online and earn rewards through this app. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 9,
+    name: 'WaterMinder',
+    category: 'Fitness',
+    description: 'An intuitive app to track your water intake. Enter your physical information and goals, and WaterMinder will do the rest. ',
+    reviews: [],
+    price: '4.99'
+  },
+  {
+    id: 10,
+    name: 'Wall Street Journal',
+    category: 'News',
+    description: 'Get the Wall Street Journal right on your mobile device. Subscription required. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 11,
+    name: 'Psych',
+    category: 'Game',
+    description: 'Answer the prompts with your friends, and vote on who had the best response. Fun for all ages.',
+    reviews: [],
+    price: '2.99'
+  }
+]
+[0mGET /guest [36m304[0m 57.001 ms - -[0m
+[0mGET /?sort=category [36m302[0m 2.393 ms - 66[0m
+[0mGET /users/login [36m304[0m 5.349 ms - -[0m
+QUERY: SELECT * FROM apps;
+PARAMS: undefined
+RESULT ROWS:  [
+  {
+    id: 1,
+    name: 'Instagram',
+    category: 'Social Media',
+    description: 'Instagram allows you to share photos and videos over the web with friends in family. It is one of the largest social media platforms in the world. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 3,
+    name: 'Groupme',
+    category: 'Messaging',
+    description: 'Send messages to your friends with GroupMe. This app allows you to make massive group chats and share messages, pictures, documents, and more!',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 2,
+    name: 'Geometry Dash',
+    category: 'Game',
+    description: 'A game where you beat multiple levels by traversing through a playing field, evading obstacles along the way',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 4,
+    name: 'Canvas',
+    category: 'Educational',
+    description: 'Take the Canvas website on the go. Track assignments, view grades, and chat with team projects through this app.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 5,
+    name: 'Venmo',
+    category: 'Finance',
+    description: 'Transfer money to friends virtually with Venmo. Venmo balances can be transferred free of charge to your bank account.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 6,
+    name: 'Chase',
+    category: 'Finance',
+    description: 'View all of your Chase accounts from this mobile banking app. Manage your investments, pay bills, and more.',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 7,
+    name: "McDonald's",
+    category: 'Food',
+    description: 'Order online and get exclusive deals with the McDonalds app. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 8,
+    name: 'Chipotle',
+    category: 'Food',
+    description: 'Order online and earn rewards through this app. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 9,
+    name: 'WaterMinder',
+    category: 'Fitness',
+    description: 'An intuitive app to track your water intake. Enter your physical information and goals, and WaterMinder will do the rest. ',
+    reviews: [],
+    price: '4.99'
+  },
+  {
+    id: 10,
+    name: 'Wall Street Journal',
+    category: 'News',
+    description: 'Get the Wall Street Journal right on your mobile device. Subscription required. ',
+    reviews: [],
+    price: '0'
+  },
+  {
+    id: 11,
+    name: 'Psych',
+    category: 'Game',
+    description: 'Answer the prompts with your friends, and vote on who had the best response. Fun for all ages.',
+    reviews: [],
+    price: '2.99'
+  }
+]
+[0mGET /guest [36m304[0m 55.587 ms - -[0m
+[0mGET /?sort=category [36m302[0m 1.920 ms - 66[0m
+[0mGET /users/login [36m304[0m 3.290 ms - -[0m

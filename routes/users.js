@@ -65,7 +65,10 @@ router.post('/login', async (req, res) => {
     if (auth) {
       [req.session.user] = selectResult.rows;
       console.log(req.session.user);
-      req.session.save(() => res.redirect('/'));
+      const newquery = 'SELECT * FROM apps;';
+      const newres = await db.query(newquery);
+
+      req.session.save(() => res.render('user-list', { rows: newres.rows }));
     } else {
       errors.push('Incorrect username/password');
       res.render('login', { errors });

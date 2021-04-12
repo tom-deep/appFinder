@@ -1,0 +1,29 @@
+<h1>appFinder</h1>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Category
+    </th>
+    <th>
+      Price
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Reviews
+    </th>
+  </tr>
+  {{#each rows}}
+  <tr>
+    <td> {{name}}</td>
+    <td>{{ category }}</td>
+    <td>{{ price }}</td>
+    <td>{{ description}} </td>
+    <td>{{ reviews}} </td>
+  </tr>
+  {{/each}}
+</table>
