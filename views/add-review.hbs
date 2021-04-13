@@ -1,4 +1,36 @@
-<a href = "user-list">Back</a>
-<div class = "container">
-    <h2>Add review</h2>
-</div>
+<h1>Add a review for the following app</h1>
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th>
+      Name
+    </th>
+    <th>
+      Category
+    </th>
+    <th>
+      Price
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      Reviews
+    </th>
+  </tr>
+  {{#each rows}}
+  <tr>
+    <td> {{name}}</td>
+    <td>{{ category }}</td>
+    <td>{{ price }}</td>
+    <td>{{ description}} </td>
+    <td>{{ reviews}} </td>
+  </tr>
+  {{/each}}
+</table>
+
+<form method="post" action = "addreview/{{id}}">
+    <div class="form-group">
+      <label for="review">Add review here</label>
+      <input class="form-control" id="username" name="username" />
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>

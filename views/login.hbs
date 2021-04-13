@@ -1,12 +1,19 @@
-<h1>appFinder</h1>
-<h3>Developed by Prestige Worldwide</h3>
+<div class="jumbotron">
+  <h1 class="display-4">appFinder</h1>
+  <p class="lead">View a repository of apps available on both the App Store and Google Play</p>
+  <p class="lead">Log in to be able to search apps and add reviews.</p>
+  <hr class="my-4">
+  <p>Developed by prestige worldwide</p>
+  <p class="lead">
+    <a class="btn btn-success mb-2" href="/users/register">Register Here</a>
+  </p>
+</div>
 
 <div class="container">
   <a class = "btn btn-success mb-2" href = '/guest'>Bypass Login</a>
   <p>You won't be able to leave reviews or expand apps, but you can still view all the apps</p>
   
   <h1>User Login</h1>
-  <a class="btn btn-success mb-2" href="/users/register">Register Here</a>
   {{#each errors}}
   <div class="alert alert-danger">
     {{ this }}
@@ -19,32 +26,6 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input
-        class="form-control"
-        id="password"
-        type="password"
-        name="password"
-      />
-    </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </form>
-</div>
-
-
-<div class="container">
-  <h1>Admin Login</h1>
-  {{#each errors}}
-  <div class="alert alert-danger">
-    {{ this }}
-  </div>
-  {{/each}}
-  <form method="post" action = "cd ">
-    <div class="form-group">
-      <label for="username">Admin Name</label>
-      <input class="form-control" id="username" name="username" />
-    </div>
-    <div class="form-group">
-      <label for="password"> Admin Password</label>
       <input
         class="form-control"
         id="password"
