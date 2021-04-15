@@ -13,15 +13,22 @@ router.get('/', (req, res) => {
 });
 
 router.get('/guest', async (req, res) => {
-  let query = 'SELECT * FROM apps;';
+  const query = 'SELECT * FROM apps;';
+
+  const result = await db.query(query);
+  res.render('guest', { rows: result.rows });
+});
+
+router.get('/user-list', async (req, res) => {
+  let query = 'SELECT * FROM apps';
   const params = [];
   if (req.query.name) {
     query += ' WHERE name ILIKE $1';
     params.push('%' + req.query.name + '%');
   }
   if (req.query.category) {
-    query += ' WHERE mL ILIKE $1';
-    params.push(req.query.ml);
+    query += ' WHERE category ILIKE $1';
+    params.push(req.query.category);
   }
   if (req.query.price) {
     query += ' WHERE price <= $1 ';
@@ -31,15 +38,40 @@ router.get('/guest', async (req, res) => {
   if (req.query.sort === 'name') {
     query += ' ORDER BY name';
   } else if (req.query.sort === 'category') {
-    query += ' ORDER BY category DESC';
+    query += ' ORDER BY category';
   } else if (req.query.sort === 'price') {
     query += ' ORDER BY price DESC';
   }
-
-  const result = await db.query(query);
-  res.render('guest', { title: 'appFinder', rows: result.rows });
+  const result = await db.query(query, params);
+  res.render('user-list', { rows: result.rows });
 });
 
+router.get('/admin-list', async (req, res) => {
+  let query = 'SELECT * FROM apps';
+  const params = [];
+  if (req.query.name) {
+    query += ' WHERE name ILIKE $1';
+    params.push('%' + req.query.name + '%');
+  }
+  if (req.query.category) {
+    query += ' WHERE category ILIKE $1';
+    params.push(req.query.category);
+  }
+  if (req.query.price) {
+    query += ' WHERE price <= $1 ';
+    params.push(req.query.price);
+  }
+
+  if (req.query.sort === 'name') {
+    query += ' ORDER BY name';
+  } else if (req.query.sort === 'category') {
+    query += ' ORDER BY category';
+  } else if (req.query.sort === 'price') {
+    query += ' ORDER BY price DESC';
+  }
+  const result = await db.query(query, params);
+  res.render('admin-list', { rows: result.rows });
+});
 router.get('/add-review/:id', async (req, res) => {
   const query = 'SELECT * FROM apps WHERE id = $1;';
   const params = [req.params.id];
@@ -92,5 +124,54 @@ router.get('/app-view/:id', async (req, res) => {
   const result = await db.query(query, params);
 
   res.render('app-view', { rows: result.rows });
+});
+
+router.get('/addapp', (req, res) => {
+  res.render('addapp-form');
+});
+
+router.post('/add-to-waitlist', async (req, res) => {
+  const query1 =
+    'INSERT INTO waitlist (name, category, price, description, publisher, link, version) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+  const params1 = [
+    req.body.name,
+    req.body.category,
+    req.body.price,
+    req.body.description,
+    req.body.publisher,
+    req.body.link,
+    req.body.version,
+  ];
+
+  await db.query(query1, params1);
+  res.render('submission-received');
+});
+router.get('/backhome', (req, res) => {
+  res.render('login');
+});
+
+router.get('/view-wait-list', async (req, res) => {
+  const query = 'SELECT * FROM waitlist;';
+  const result = await db.query(query);
+  res.render('waitlist', { rows: result.rows });
+});
+
+/*
+router.get('/confirm/:id', async (req, res) => {
+  const params = [req.params.id];
+  const name = 'SELECT name FROM waitlist WHERE name = $1;';
+
+  const nameresult = await db.query(name, params);
+
+});
+*/
+router.get('/deny/:id', async (req, res) => {
+  const query = 'DELETE FROM waitlist WHERE id = $1;';
+  const params = [req.params.id];
+  await db.query(query, params);
+
+  const query2 = 'SELECT * FROM waitlist;';
+  const result = await db.query(query2);
+  res.render('waitlist', { rows: result.rows });
 });
 module.exports = router;

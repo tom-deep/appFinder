@@ -1,8 +1,12 @@
 <h1>appFinder</h1>
+<a class = "btn btn-primary" href = '/addapp'>Submit an app to the wait list</a>
+<p>Our admins will review it, and if accepted it will be added to the database. </p>
+<a class = "btn btn-primary" href = '/view-wait-list'>View the wait list</a>
+<p>View the apps in the waitlist and confirm or deny them.</p>
 <table class="table table-striped table-hover table-bordered">
   <tr>
     <th>
-      <a href="/guest?sort=name">Name</a><br />
+      <a href="/admin-list?sort=name">Name</a><br />
       <form>
         <p>Search</p>
         <p>Enter any part of name</p>
@@ -10,7 +14,7 @@
       </form>
     </th>
     <th>
-      <a href="/guest?sort=category">Category</a><br />
+      <a href="/admin-list?sort=category">Category</a><br />
       <form>
         <p>Search</p>  
         <p>Enter any part of category</p>
@@ -18,7 +22,7 @@
       </form>
     </th>
     <th>
-      <a href="/guest?sort=price">Price</a><br />
+      <a href="/admin-list?sort=price">Price</a><br />
       <form>
         <p>Filter</p>  
         <p>Enter maximum price</p>

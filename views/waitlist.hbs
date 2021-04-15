@@ -1,4 +1,4 @@
-<h1>appFinder</h1>
+<h1>Waitlist</h1>
 <div><a href="/users/logout">Logout</a></div>
 <table class="table table-striped table-hover table-bordered">
   <tr>
@@ -23,9 +23,7 @@
     <th>
       Link
     </th>
-    <th>
-      Reviews
-    </th>
+
   </tr>
   {{#each rows}}
   <tr>
@@ -36,7 +34,8 @@
     <td>{{ version}} </td>
     <td>{{ publisher}} </td>
     <td>{{ link}} </td>
-    <td>{{ reviews }} </td>
+    <td><a class = "btn btn-primary" href = 'confirm/{{id}}'>Confirm</a></td>
+    <td><a class = "btn btn-primary" href = 'deny/{{id}}'>Deny</a></td>
   </tr>
   {{/each}}
 </table>
