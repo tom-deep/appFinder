@@ -156,15 +156,37 @@ router.get('/view-wait-list', async (req, res) => {
   res.render('waitlist', { rows: result.rows });
 });
 
-/*
 router.get('/confirm/:id', async (req, res) => {
   const params = [req.params.id];
-  const name = 'SELECT name FROM waitlist WHERE name = $1;';
-
-  const nameresult = await db.query(name, params);
-
+  const query = 'SELECT * FROM waitlist WHERE id = $1;';
+  const result = await db.query(query, params);
+  res.render('confirm-add', { rows: result.rows });
 });
-*/
+
+router.post('/add-to-list/:id', async (req, res) => {
+  const query1 =
+    'INSERT INTO apps (name, category, price, description, publisher, link, version) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+  const params1 = [
+    req.body.name,
+    req.body.category,
+    req.body.price,
+    req.body.description,
+    req.body.publisher,
+    req.body.link,
+    req.body.version,
+  ];
+  await db.query(query1, params1);
+
+  const params = [req.params.id];
+  const deletequery = 'DELETE FROM waitlist WHERE id = $1;';
+
+  await db.query(deletequery, params);
+
+  const query2 = 'SELECT * FROM waitlist;';
+  const result = await db.query(query2);
+  res.render('waitlist', { rows: result.rows });
+});
+
 router.get('/deny/:id', async (req, res) => {
   const query = 'DELETE FROM waitlist WHERE id = $1;';
   const params = [req.params.id];

@@ -1,5 +1,6 @@
 <h1>Waitlist</h1>
 <div><a href="/users/logout">Logout</a></div>
+<a href = "/admin-list">Back to list</a>
 <table class="table table-striped table-hover table-bordered">
   <tr>
     <th>
@@ -27,13 +28,13 @@
   </tr>
   {{#each rows}}
   <tr>
-    <td> {{name}}</td>
-    <td>{{ category }}</td>
-    <td>{{ price }}</td>
-    <td>{{ description}} </td>
-    <td>{{ version}} </td>
-    <td>{{ publisher}} </td>
-    <td>{{ link}} </td>
+    <td id = "name"> {{name}}</td>
+    <td id = "category">{{ category }}</td>
+    <td id = "price">{{ price }}</td>
+    <td id = "description">{{ description}} </td>
+    <td id = "version">{{ version}} </td>
+    <td id = "publisher">{{ publisher}} </td>
+    <td id = "link">{{ link}} </td>
     <td><a class = "btn btn-primary" href = 'confirm/{{id}}'>Confirm</a></td>
     <td><a class = "btn btn-primary" href = 'deny/{{id}}'>Deny</a></td>
   </tr>
