@@ -80,16 +80,28 @@ router.get('/add-review/:id', async (req, res) => {
   res.render('add-review', { rows: result.rows });
 });
 
-router.post('add-review/:id', async (req, res) => {
-  const query = 'UPDATE apps SET review[1] = $2 WHERE id = $1;';
-  const params = [req.params.id, req.body.review];
-  await db.query(query, params);
+// need to figure out how to make no reviews show as an empty string, not an empty object converted to a string
 
-  const rowsquery = 'SELECT * FROM apps WHERE id = $1;';
-  const params2 = [req.params.id];
-  const result = await db.query(rowsquery, params2);
-
-  res.render('app-view/:id', { rows: result.rows });
+router.post('/addreview/:id', async (req, res) => {
+  const query = 'SELECT reviews FROM apps WHERE id = $1;';
+  const params = [req.params.id];
+  const result = await db.query(query, params);
+  const oldreviews = JSON.stringify(result.rows[0]);
+  if (oldreviews) {
+    const newreview = JSON.stringify(req.body.newreview);
+    const reviews = newreview + ', ' + oldreviews;
+    const params2 = [req.params.id, reviews];
+    const query2 = 'UPDATE apps SET REVIEWS = $2 WHERE id = $1;';
+    await db.query(query2, params2);
+  } else {
+    const review = JSON.stringify(req.body.newreview);
+    const params3 = [req.params.id, review];
+    const query3 = 'UPDATE apps SET REVIEWS = $2 WHERE id = $1;';
+    await db.query(query3, params3);
+  }
+  res.render('submission-received', {
+    title: 'Thank you for posting your review',
+  });
 });
 router.get('/edit-app/:id', async (req, res) => {
   const query = 'SELECT * FROM apps WHERE id = $1;';
@@ -144,7 +156,9 @@ router.post('/add-to-waitlist', async (req, res) => {
   ];
 
   await db.query(query1, params1);
-  res.render('submission-received');
+  res.render('submission-received', {
+    title: 'Thank you for adding an app to the waitlist',
+  });
 });
 router.get('/backhome', (req, res) => {
   res.render('login');
