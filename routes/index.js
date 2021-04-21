@@ -86,15 +86,15 @@ router.post('/addreview/:id', async (req, res) => {
   const query = 'SELECT reviews FROM apps WHERE id = $1;';
   const params = [req.params.id];
   const result = await db.query(query, params);
-  const oldreviews = JSON.stringify(result.rows[0]);
-  if (oldreviews) {
-    const newreview = JSON.stringify(req.body.newreview);
-    const reviews = newreview + ', ' + oldreviews;
-    const params2 = [req.params.id, reviews];
+  const oldreviews = result.rows[0].reviews;
+  if (oldreviews !== '') {
+    const reviews = [oldreviews, req.body.newreview];
+    const final = reviews.join(', \t');
+    const params2 = [req.params.id, final];
     const query2 = 'UPDATE apps SET REVIEWS = $2 WHERE id = $1;';
     await db.query(query2, params2);
   } else {
-    const review = JSON.stringify(req.body.newreview);
+    const review = req.body.newreview;
     const params3 = [req.params.id, review];
     const query3 = 'UPDATE apps SET REVIEWS = $2 WHERE id = $1;';
     await db.query(query3, params3);
