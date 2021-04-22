@@ -24,35 +24,35 @@
     <form action = "/edit-app/{{app.id}}" method = "post">
         <div class = "form-group">
             <label for = "name">Name</label>
-            <input type = "text" class = "form-control" name = "name" value = "???">
+            <input type = "text" class = "form-control" name = "name" value = "{{appname}}">
         </div>
         <div class = "form-group">
             <label for = "category">Category</label>
-            <input type = "text" class = "form-control" name = "category" value = "???">
+            <input type = "text" class = "form-control" name = "category" value = "{{appcategory}}">
         </div>
         <div class = "form-group">
             <label for = "price">Price</label>
-            <input type = "number" step = ".01" class = "form-control" name = "price" value = "???">
+            <input type = "number" step = ".01" class = "form-control" name = "price" value = "{{appprice}}">
         </div>
         <div class = "form-group">
             <label for = "description">Description</label>
-            <input type = "text" class = "form-control" name = "description" value = "{{description}}">
+            <input type = "text" class = "form-control" name = "description" value = "{{appdescription}}">
         </div>
         <div class = "form-group">
             <label for = "reviews">Reviews</label>
-            <input type = "text" class = "form-control" name = "reviews" value = "???">
+            <input type = "text" class = "form-control" name = "reviews" value = "{{appreviews}}">
         </div>
         <div class = "form-group">
             <label for = "publisher">Publisher</label>
-            <input type = "text" class = "form-control" name = "publisher" value = "???">
+            <input type = "text" class = "form-control" name = "publisher" value = "{{apppublisher}}">
         </div>
         <div class = "form-group">
             <label for = "version">Version</label>
-            <input type = "text" class = "form-control" name = "version" value = "???">
+            <input type = "text" class = "form-control" name = "version" value = "{{appversion}}">
         </div>
         <div class = "form-group">
             <label for = "link">Link</label>
-            <input type = "text" class = "form-control" name = "link" value = "???">
+            <input type = "text" class = "form-control" name = "link" value = "{{applink}}">
         </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>

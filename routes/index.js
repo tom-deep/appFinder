@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 const express = require('express');
 const db = require('../db');
 
@@ -107,7 +108,25 @@ router.get('/edit-app/:id', async (req, res) => {
   const query = 'SELECT * FROM apps WHERE id = $1;';
   const params = [req.params.id];
   const result = await db.query(query, params);
-  res.render('edit-app', { app: result.rows[0] });
+  const name = result.rows[0].name;
+  const category = result.rows[0].category;
+  const price = result.rows[0].price;
+  const description = result.rows[0].description;
+  const reviews = result.rows[0].reviews;
+  const publisher = result.rows[0].publisher;
+  const version = result.rows[0].version;
+  const link = result.rows[0].link;
+  res.render('edit-app', {
+    appname: name,
+    appcategory: category,
+    appprice: price,
+    appdescription: description,
+    appreviews: reviews,
+    apppublisher: publisher,
+    applink: link,
+    appversion: version,
+    app: result.rows[0],
+  });
 });
 
 router.post('/edit-app/:id', async (req, res) => {
