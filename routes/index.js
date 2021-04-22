@@ -112,7 +112,7 @@ router.get('/edit-app/:id', async (req, res) => {
 
 router.post('/edit-app/:id', async (req, res) => {
   const query =
-    'UPDATE apps SET name = $2, category = $3, price = $4, description = $5, reviews = $6 WHERE id = $1;';
+    'UPDATE apps SET name = $2, category = $3, price = $4, description = $5, reviews = $6, publisher = $7, version = $8, link = $9 WHERE id = $1;';
   const params = [
     req.params.id,
     req.body.name,
@@ -120,6 +120,9 @@ router.post('/edit-app/:id', async (req, res) => {
     req.body.price,
     req.body.description,
     req.body.reviews,
+    req.body.publisher,
+    req.body.version,
+    req.body.link,
   ];
   await db.query(query, params);
 
