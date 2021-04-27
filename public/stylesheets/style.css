@@ -6,6 +6,8 @@ body {
 a {
   color: #00b7ff;
 }
-/* 
-Style sheet, not really used at all
-*/
+
+img {
+  border-radius: 25px;
+  padding: 20px;
+}

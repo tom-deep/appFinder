@@ -20,9 +20,12 @@
 
 <h1>appFinder</h1>
 
-<p>View the apps in the waitlist and confirm or deny them.</p>
+
 <table class="table table-striped table-hover table-bordered">
   <tr>
+    <th>
+      Icon
+    </th>
     <th>
       <a href="/admin-list?sort=name">Name</a><br />
       <form>
@@ -50,6 +53,13 @@
   </tr>
   {{#each rows}}
   <tr>
+    <td>
+      {{#if picture}}
+        <img src = "/images/{{picture}}" width = "60" height = "60">
+        {{else}}
+        No icon available yet
+      {{/if}}
+    </td>
     <td><a class = "btn btn-primary" href = '/app-view/{{id}}'>{{name}}</a></td>
     <td>{{ category }}</td>
     <td>{{ price }}</td>

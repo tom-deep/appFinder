@@ -180,6 +180,7 @@ router.post('/add-to-waitlist', async (req, res) => {
   await db.query(query1, params1);
   res.render('submission-received', {
     title: 'Thank you for adding an app to the waitlist',
+    list: '/user-list',
   });
 });
 router.get('/backhome', (req, res) => {

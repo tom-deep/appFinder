@@ -17,6 +17,9 @@
 <table class="table table-striped table-hover table-bordered">
   <tr>
     <th>
+      Icon
+    </th>
+    <th>
       Name
     </th>
     <th>
@@ -43,6 +46,13 @@
   </tr>
   {{#each rows}}
   <tr>
+    <td>
+      {{#if picture}}
+        <img src = "/images/{{picture}}" width = "60" height = "60">
+        {{else}}
+        No icon available yet
+      {{/if}}
+    </td>
     <td> {{name}}</td>
     <td>{{ category }}</td>
     <td>{{ price }}</td>
@@ -54,3 +64,4 @@
   </tr>
   {{/each}}
 </table>
+<br>
