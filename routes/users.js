@@ -46,7 +46,7 @@ router.post('/register', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  res.render('login', { title: 'Express' });
+  res.render('login', { title: 'Login' });
 });
 
 router.post('/login', async (req, res) => {
@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
     const newquery = 'SELECT * FROM apps';
 
     const newRes = await db.query(newquery);
-    res.render('admin-list', { rows: newRes.rows });
+    req.session.save(() => res.render('admin-list', { rows: newRes.rows }));
   } else if (selectResult.rows.length === 1) {
     const auth = await bcrypt.compare(
       req.body.password,

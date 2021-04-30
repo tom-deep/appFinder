@@ -29,7 +29,7 @@ router.get('/user-list', async (req, res) => {
   }
   if (req.query.category) {
     query += ' WHERE category ILIKE $1';
-    params.push(req.query.category);
+    params.push('%' + req.query.category + '%');
   }
   if (req.query.price) {
     query += ' WHERE price <= $1 ';
@@ -56,7 +56,7 @@ router.get('/admin-list', async (req, res) => {
   }
   if (req.query.category) {
     query += ' WHERE category ILIKE $1';
-    params.push(req.query.category);
+    params.push('%' + req.query.category + '%');
   }
   if (req.query.price) {
     query += ' WHERE price <= $1 ';
